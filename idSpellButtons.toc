@@ -1,0 +1,13 @@
+## Interface: 30000
+Addon.lua
+Death Knight.lua
+Druid.lua
+Hunter.lua
+Mage.lua
+Paladin.lua
+Priest.lua
+Rogue.lua
+Shaman.lua
+Warlock.lua
+Warrior.lua
+
