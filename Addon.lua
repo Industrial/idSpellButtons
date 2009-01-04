@@ -29,3 +29,5 @@ function addon.create_button (spellname, p1, p, p2, x, y)
 	return button
 end
 
+_G.idSpellButtons = addon
+
