@@ -4,25 +4,42 @@ local TL, TC, TR = 'TOPLEFT', 'TOP', 'TOPRIGHT'
 local ML, MC, MR = 'LEFT', 'CENTER', 'RIGHT'
 local BL, BC, BR = 'BOTTOMLEFT', 'BOTTOM', 'BOTTOMRIGHT'
 
-local addon = {}
 local eventframe = CreateFrame('Frame')
+local addon = {}
+local buttons = {}
+local button_size = ActionButton1:GetWidth()
 
-function addon:initialize (addon_name)
-	if addon_name ~= 'idSpellButtons' then return end
+function addon.create_button (spellname, p1, p, p2, x, y)
+	local button = CreateFrame('CheckButton', nil, UIParent, 'SecureActionButtonTemplate')
+	local texture = button:CreateTexture(nil)
+
+	button:SetAttribute('type', 'spell')
+	button:SetAttribute('spell', spellname)
+
+	button:SetWidth(button_size)
+	button:SetHeight(button_size)
+
+	button:SetPoint(p1, p, p2, x, y)
+
+	texture:SetTexture(select(3, GetSpellInfo(spellname)))
+	texture:SetAllPoints(button)
+
+	button.texture = texture
+	buttons[spellname] = button
 end
 
-function addon:enable ()
-	-- do stuff
-end
+_G.idSpellButtons = addon
 
-function addon.onevent (frame, event, ...)
-	if event == 'ADDON_LOADED' then
-		addon:initialize()
-	elseif event == 'PLAYER_LOGIN' then
-		addon:enable()
-	end
-end
+---
 
-eventframe:SetScript('OnEvent', addon.onevent)
+if select(2, UnitClass('player')) ~= 'SHAMAN' then return end
 
-_G.idSpellButtons = {}
+local _G = _G
+
+local TL, TC, TR = 'TOPLEFT', 'TOP', 'TOPRIGHT'
+local ML, MC, MR = 'LEFT', 'CENTER', 'RIGHT'
+local BL, BC, BR = 'BOTTOMLEFT', 'BOTTOM', 'BOTTOMRIGHT'
+
+local addon = _G.idSpellButtons
+
+addon.create_button('Lightning Shield', MC, UIParent, MC, 0, -200)
