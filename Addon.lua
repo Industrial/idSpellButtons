@@ -9,6 +9,22 @@ local addon = {}
 local buttons = {}
 local button_size = ActionButton1:GetWidth()
 
+local onevent
+
+function onevent (frame, event, ...)
+	if event == 'PLAYER_LOGIN' then
+		addon:enable()
+	end
+end
+
+function addon:enable ()
+	if self.enable_class then
+		self:enable_class()
+	else
+		print('idSpellButtons: no class?')
+	end
+end
+
 function addon.create_button (spellname, p1, p, p2, x, y)
 	local button = CreateFrame('CheckButton', nil, UIParent, 'SecureActionButtonTemplate')
 	local texture = button:CreateTexture(nil)
@@ -28,6 +44,9 @@ function addon.create_button (spellname, p1, p, p2, x, y)
 	buttons[spellname] = button
 	return button
 end
+
+eventframe:SetScript('OnEvent', onevent)
+eventframe:RegisterEvent('PLAYER_LOGIN')
 
 _G.idSpellButtons = addon
 
