@@ -13,7 +13,7 @@ local padding_elements = 1
 local padding_parts = 5
 
 -- totems
-local a1 = c('Windfury Totem', MC, UIParent, MC, 400, 0)
+local a1 = c('Windfury Totem', MC, UIParent, MC, 450, 100)
 local a2 = c('Grounding Totem', ML, a1, MR, padding_elements, 0)
 local a3 = c('Wrath of Air Totem', ML, a2, MR, padding_elements, 0)
 local a4 = c('Nature Resistance Totem', ML, a3, MR, padding_elements, 0)
@@ -50,7 +50,8 @@ local earth_shield = c('Earth Shield', ML, lightning_shield, MR, padding_element
 local windfury_weapon = c('Windfury Weapon', TC, water_shield, BC, 0, -padding_parts)
 local flametongue_weapon = c('Flametongue Weapon', ML, windfury_weapon, MR, padding_elements, 0)
 local frostbrand_weapon = c('Frostbrand Weapon', ML, flametongue_weapon, MR, padding_elements, 0)
-local earthliving_weapon = c('Earthliving Weapon', ML, frostbrand_weapon, MR, padding_elements, 0)
+local rockbiter_weapon = c('Rockbiter Weapon', ML, frostbrand_weapon, MR, padding_elements, 0)
+local earthliving_weapon = c('Earthliving Weapon', ML, rockbiter_weapon, MR, padding_elements, 0)
 
 -- other
 local shamanistic_rage = c('Shamanistic Rage', TC, windfury_weapon, BC, 0, -padding_parts)
