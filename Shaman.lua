@@ -44,25 +44,24 @@ function addon:enable_class ()
 
 	local totemic_call = c('Totemic Call', MR, e1, ML, -padding_parts, -(padding_elements / 2 + e1:GetHeight() / 2))
 
-	-- shields
-	local water_shield = c('Water Shield', TC, w1, BC, 0, -padding_parts)
-	local lightning_shield = c('Lightning Shield', ML, water_shield, MR, padding_elements, 0)
-	local earth_shield = c('Earth Shield', ML, lightning_shield, MR, padding_elements, 0)
-
 	-- weapon enchants
-	local windfury_weapon = c('Windfury Weapon', TC, water_shield, BC, 0, -padding_parts)
+	local windfury_weapon = c('Windfury Weapon', TC, w1, BC, 0, -padding_parts)
 	local flametongue_weapon = c('Flametongue Weapon', ML, windfury_weapon, MR, padding_elements, 0)
 	local frostbrand_weapon = c('Frostbrand Weapon', ML, flametongue_weapon, MR, padding_elements, 0)
 	local rockbiter_weapon = c('Rockbiter Weapon', ML, frostbrand_weapon, MR, padding_elements, 0)
 	local earthliving_weapon = c('Earthliving Weapon', ML, rockbiter_weapon, MR, padding_elements, 0)
 
+	-- out of combat
+	local astral_recall = c('Astral Recall', TC, windfury_weapon, BC, 0, -padding_parts)
+	local water_walking = c('Water Walking', ML, astral_recall, MR, padding_elements, 0)
+	local water_breathing = c('Water Breathing', ML, water_walking, MR, padding_elements, 0)
 	-- other
-	local shamanistic_rage = c('Shamanistic Rage', TC, windfury_weapon, BC, 0, -padding_parts)
+	local shamanistic_rage = c('Shamanistic Rage', TC, astral_recall, BC, 0, -padding_parts)
 	local feral_spirit = c('Feral Spirit', ML, shamanistic_rage, MR, padding_elements, 0)
 	local heroism = c('Heroism', ML, feral_spirit, MR, padding_elements, 0)
 
-	-- out of combat
-	local astral_recall = c('Astral Recall', TC, shamanistic_rage, BC, 0, -padding_parts)
-	local water_walking = c('Water Walking', ML, astral_recall, MR, padding_elements, 0)
-	local water_breathing = c('Water Breathing', ML, water_walking, MR, padding_elements, 0)
+	-- shields
+	local water_shield = c('Water Shield', TC, shamanistic_rage, BC, 0, -padding_parts)
+	local lightning_shield = c('Lightning Shield', ML, water_shield, MR, padding_elements, 0)
+	local earth_shield = c('Earth Shield', ML, lightning_shield, MR, padding_elements, 0)
 end
