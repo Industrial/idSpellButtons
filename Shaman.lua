@@ -32,13 +32,15 @@ function addon:enable_class ()
 	local f3 = c('Magma Totem', ML, f2, MR, padding_elements, 0)
 	local f4 = c('Searing Totem', ML, f3, MR, padding_elements, 0)
 	local f5 = c('Fire Elemental Totem', ML, f4, MR, padding_elements, 0)
-	local f6 = c('Frost Totem', ML, f5, MR, padding_elements, 0)
+	local f6 = c('Frost Resistance Totem', ML, f5, MR, padding_elements, 0)
+	local f7 = c('Totem of Wrath', ML, f6, MR, padding_elements, 0)
 
 	local w1 = c('Mana Spring Totem', TC, f1, BC, 0, -padding_elements)
 	local w2 = c('Poison Cleansing Totem', ML, w1, MR, padding_elements, 0)
 	local w3 = c('Disease Cleansing Totem', ML, w2, MR, padding_elements, 0)
 	local w4 = c('Healing Stream Totem', ML, w3, MR, padding_elements, 0)
 	local w5 = c('Fire Resistance Totem', ML, w4, MR, padding_elements, 0)
+	local w6 = c('Mana Tide Totem', ML, w5, MR, padding_elements, 0)
 
 	local totemic_call = c('Totemic Call', MR, e1, ML, -padding_parts, -(padding_elements / 2 + e1:GetHeight() / 2))
 
