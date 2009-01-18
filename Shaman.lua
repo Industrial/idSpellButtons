@@ -60,4 +60,9 @@ function addon:enable_class ()
 	local shamanistic_rage = c('Shamanistic Rage', TC, windfury_weapon, BC, 0, -padding_parts)
 	local feral_spirit = c('Feral Spirit', ML, shamanistic_rage, MR, padding_elements, 0)
 	local heroism = c('Heroism', ML, feral_spirit, MR, padding_elements, 0)
+
+	-- out of combat
+	local astral_recall = c('Astral Recall', TC, shamanistic_rage, BC, 0, -padding_parts)
+	local water_walking = c('Water Walking', ML, astral_recall, MR, padding_elements, 0)
+	local water_breathing = c('Water Breathing', ML, water_walking, MR, padding_elements, 0)
 end
