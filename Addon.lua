@@ -29,6 +29,7 @@ function addon.create_button (spellname, p1, p, p2, x, y)
 	local button = CreateFrame('CheckButton', 'idSpellButtons_'..spellname, UIParent, 'SecureActionButtonTemplate, ActionButtonTemplate')
 	local icon = _G['idSpellButtons_'..spellname..'Icon']
 	local texture = _G['idSpellButtons_'..spellname..'NormalTexture2'] or _G['idSpellButtons_'..spellname..'NormalTexture']
+	local checkedtexture = button:GetCheckedTexture()
 
 	button:SetAttribute('type', 'spell')
 	button:SetAttribute('spell', spellname)
@@ -40,6 +41,8 @@ function addon.create_button (spellname, p1, p, p2, x, y)
 	icon:SetTexCoord(0.08,0.92,0.08,0.92)
 
 	texture:SetTexCoord(0,0,0,0)
+
+	checkedtexture:SetTexture()
 
 	buttons[spellname] = button
 	return button
