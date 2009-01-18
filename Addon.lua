@@ -26,21 +26,21 @@ function addon:enable ()
 end
 
 function addon.create_button (spellname, p1, p, p2, x, y)
-	local button = CreateFrame('CheckButton', nil, UIParent, 'SecureActionButtonTemplate')
-	local texture = button:CreateTexture(nil)
+	local button = CreateFrame('CheckButton', 'idSpellButtons_'..spellname, UIParent, 'SecureActionButtonTemplate, ActionButtonTemplate')
+	local icon = _G['idSpellButtons_'..spellname..'Icon']
+	local texture = _G['idSpellButtons_'..spellname..'NormalTexture2'] or _G['idSpellButtons_'..spellname..'NormalTexture']
 
 	button:SetAttribute('type', 'spell')
 	button:SetAttribute('spell', spellname)
-
 	button:SetWidth(button_size)
 	button:SetHeight(button_size)
-
 	button:SetPoint(p1, p, p2, x, y)
 
-	texture:SetTexture(select(3, GetSpellInfo(spellname)))
-	texture:SetAllPoints(button)
+	icon:SetTexture(select(3, GetSpellInfo(spellname)))
+	icon:SetTexCoord(0.08,0.92,0.08,0.92)
 
-	button.texture = texture
+	texture:SetTexCoord(0,0,0,0)
+
 	buttons[spellname] = button
 	return button
 end
