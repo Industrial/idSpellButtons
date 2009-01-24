@@ -11,6 +11,8 @@ local button_size = ActionButton1:GetWidth()
 
 local onevent
 
+addon.buttons = buttons
+
 function onevent (frame, event, ...)
 	if event == 'PLAYER_LOGIN' then
 		addon:enable()
