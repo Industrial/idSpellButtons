@@ -38,6 +38,7 @@ function addon.create_button (spellname, p1, p, p2, x, y)
 	button:SetWidth(button_size)
 	button:SetHeight(button_size)
 	button:SetPoint(p1, p, p2, x, y)
+	button:SetScale(0.75)
 
 	icon:SetTexture(select(3, GetSpellInfo(spellname)))
 	icon:SetTexCoord(0.08,0.92,0.08,0.92)
